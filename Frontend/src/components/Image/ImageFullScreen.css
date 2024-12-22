@@ -1,0 +1,41 @@
+
+.Overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 99vw;
+    background-color: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    z-index: 4;
+}
+
+.Image{
+    object-fit: contain;
+    width: 90%;
+    height: 90%;
+    animation: open 750ms;
+}
+
+.ImageButton{
+    width: 5%;
+    height: 5%;
+    position: fixed;
+    top:7%;
+    right: 2%;
+}
+
+@keyframes open {
+    from{
+        width: 0%;
+        height: 0%;
+    }
+    to{
+        width: 90%;
+        height: 90%;
+    }
+}
