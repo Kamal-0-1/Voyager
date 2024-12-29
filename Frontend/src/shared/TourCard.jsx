@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/tour-card.css'
-import { Card, CardBody } from 'reactstrap'
+import { Card, CardBody ,Badge} from 'reactstrap'
 import { Link } from 'react-router-dom'
 import calculateAvgRating from '../utils/avgRating'
 import { Image } from '../components/Image/Image'
@@ -59,7 +59,7 @@ const TourCard = ({tour}) => {
               
             </div>
           </Slider>
-          { featured && <span>Featured</span>}
+          { featured && <Badge>Featured</Badge>}
         </div>
         <CardBody>
         <div className="card__top d-flex align-items-center justify-content-between">

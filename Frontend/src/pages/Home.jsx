@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
     <Container>
-      <Row>
+      <Row className='Hero'>
         <Col  lg="6">
         <div className="hero__content">
           <div className="hero__subtitle d-flex align-items-center">
@@ -45,8 +45,8 @@ const Home = () => {
           <img src={heroImg02} alt="" />
         </div>
         </Col>
-        <SearchBar/>
       </Row>
+      <SearchBar/>
     </Container>
     <section>
       <Container>
