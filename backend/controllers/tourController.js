@@ -70,15 +70,17 @@ export const deleteTour = async(req,res)=>{
 //getSingle tour
 export const getSingleTour = async(req,res)=>{
     const id = req.params.id
-   
+    // console.log(process.env.API_KEY)
     try {
 
         const tour = await Tour.findById(id).populate('reviews')
-
+        var url=`https://api.openweathermap.org/data/2.5/weather?lat=${tour.lat}&lon=${tour.lon}&appid=${process.env.API_KEY}`
+        const climate=await fetch(url).then(res=>res.json())
         res.status(200).json({
             success:true,
             message:'Successfully find',
-            data:tour
+            data:tour,
+            other:climate
         });
         
     } catch (err) {
@@ -94,7 +96,6 @@ export const getAllTour = async(req,res)=>{
 
     // for pagination
     const page = parseInt(req.query.page);
-
     try {
         
         const tours = await Tour.find({}).populate('reviews').skip(page *8).limit(8)

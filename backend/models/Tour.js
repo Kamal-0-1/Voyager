@@ -24,6 +24,14 @@ const tourSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    lat:{
+      type:mongoose.Types.Decimal128,
+      required:true,
+    },
+    lon:{
+      type:mongoose.Types.Decimal128,
+      required:true,
+    },
     address: {
       type: String,
       required: true,

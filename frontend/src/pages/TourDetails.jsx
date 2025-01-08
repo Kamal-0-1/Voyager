@@ -21,9 +21,7 @@ const TourDetails = () => {
   const { user } = useContext(AuthContext)
 
   // featch data from database
-  const { data:tour,loading,error } =useFetch(`${BASE_URL}/tours/${id}`)
-  
-
+  const { data:tour,other:climate,loading,error } =useFetch(`${BASE_URL}/tours/${id}`)
   const { 
     photo, 
     title, 
@@ -33,7 +31,8 @@ const TourDetails = () => {
     address, 
     city, 
     distance, 
-    maxGroupSize,itinerary } = tour
+    maxGroupSize,itinerary} = tour
+    const {weather,main}=climate
   const { totalRating, avgRating } = calculateAvgRating(reviews)
 
   const options ={day:'numeric',month:'long',year:'numeric'}
@@ -106,15 +105,20 @@ const TourDetails = () => {
                    
                    <div className="tour__extra-details">
                     <span><i class="ri-map-pin-2-line"></i>{city}</span>
-                    <span><i class="ri-money-dollar-circle-line"></i>${price}/per person</span>
+                    <span>₹{price}/per person</span>
                     <span><i class="ri-map-pin-time-line"></i>{distance} k/m</span>
                     <span><i class="ri-group-line"></i>{maxGroupSize} people </span>
-                    <span><i class="ri-cloud-line"></i>28°C</span>
-                   </div>
+                    </div>
+                    <div className='d-flex align-items-center'>
+                    <h5 className='m-0'>Weather</h5>
+                    <img className='m-0' src={`https://openweathermap.org/img/wn/${weather[0].icon}.png`} style={{width:'60px',height:'60px'}}></img>
+                    </div>
+                    <p className='p-1'>{weather[0].main} {Math.floor(main.feels_like-275)}°C</p>
+                    {/* <p className='p-1'>{Math.floor(main.feels_like-275)}°C</p> */}
                     <h5>Description</h5>
                     <p>{desc}</p>
                     <h5>Itineraries</h5>
-                    {itinerary?.map(data=><li>Day:{data.day} {data.activities}</li>)}
+                    {itinerary?.map(data=><details className='m-2 p-2' style={{border:'1px solid rgb(229, 231,235)',borderRadius:'0.5rem'}}><summary>Day:{data.day}</summary>{data.activities}</details>)}
                 </div>
 
 <div className="tour__reviews mt-4">
