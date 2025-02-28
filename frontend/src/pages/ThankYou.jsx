@@ -1,8 +1,48 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { Button, Col, Container, Row } from 'reactstrap'
 import '../styles/thank-you.css'
 import { Link } from 'react-router-dom'
+import { BASE_URL } from '../utils/config'
+
 const ThankYou = () => {
+    useEffect(()=>{
+        const params=new URLSearchParams(window.location.search);
+        const userId=params.get("userID");
+        const userEmail=params.get("userEmail");
+        const tourName=params.get("tourName");
+        const fullName=params.get("fullName");
+        const phone=Number(params.get("phone"));
+        const guestSize=Number(params.get("guestSize"));
+        const bookAt=params.get("bookAt");
+        const price=params.get("price")
+        const data={userId,userEmail,tourName,fullName,phone,guestSize,bookAt,price};
+        // console.log(data);
+        async function name(params) {
+            try {
+                    const res = await fetch(`${BASE_URL}/book/save`, {
+                        method: 'POST',
+                        credentials: 'include', // Include credentials (cookies)
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body:JSON.stringify(data)
+                    })
+                    const result = await res.json()
+        
+                    if(!res.ok){
+                        return alert(result.message)
+                    }
+                    // console.log(result);
+                    // window.open(result.data);
+        
+                } catch (err) {
+                    alert(err.message)
+                }    
+        }
+        name();
+    },[])
+   
   return (
    <section>
     <Container>

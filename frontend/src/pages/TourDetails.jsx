@@ -7,7 +7,6 @@ import { Col, Container, Form, ListGroup, Row } from 'reactstrap'
 import calculateAvgRating from '../utils/avgRating'
 import avatar from '../assets/images/avatar.jpg'
 import Booking from '../components/Booking/Booking'
-import Newsletter from '../shared/Newsletter'
 import useFetch from '../hooks/useFetch'
 import { BASE_URL } from '../utils/config'
 
@@ -28,7 +27,6 @@ const TourDetails = () => {
     desc, 
     price,
     reviews, 
-    address, 
     city, 
     distance, 
     maxGroupSize,itinerary} = tour
@@ -83,7 +81,7 @@ const TourDetails = () => {
             !loading && !error && <Row>
             <Col lg='8'>
               <div className="tour__content">
-                <img src={photo} alt="" />
+        
                 <div className="tour__info">
                   <h2>{title}</h2>
                   <div className="d-flex align-items-center gap-5">
@@ -96,11 +94,6 @@ const TourDetails = () => {
                       )}
                     </span>
 
-
-                    <span>
-                      <i class="ri-map-pin-user-fill"></i>
-                      {address}
-                    </span>
                   </div>
                    
                    <div className="tour__extra-details">
@@ -188,7 +181,6 @@ const TourDetails = () => {
           }
         </Container>
       </section>
-      <Newsletter/>
     </>
   )
 }

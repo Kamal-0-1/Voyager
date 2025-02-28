@@ -74,7 +74,7 @@ export const getSingleTour = async(req,res)=>{
     try {
 
         const tour = await Tour.findById(id).populate('reviews')
-        var url=`https://api.openweathermap.org/data/2.5/weather?lat=${tour.lat}&lon=${tour.lon}&appid=${process.env.API_KEY}`
+        var url=`https://api.openweathermap.org/data/2.5/weather?lat=${tour.lat}&lon=${tour.lon}&appid=${process.env.WEATHER_API_KEY}`
         const climate=await fetch(url).then(res=>res.json())
         res.status(200).json({
             success:true,

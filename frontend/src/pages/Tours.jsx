@@ -5,7 +5,6 @@ import "../styles/tour.css"
 import { Col, Container, Row } from 'reactstrap'
 import SearchBar from '../shared/SearchBar'
 import TourCard from '../shared/TourCard'
-import Newsletter from '../shared/Newsletter'
 
 import useFetch from '../hooks/useFetch'
 import { BASE_URL } from '../utils/config'
@@ -65,7 +64,6 @@ useEffect(()=>{
 }
   </Container>
 </section>
-<Newsletter/>
 </>
   )
 }

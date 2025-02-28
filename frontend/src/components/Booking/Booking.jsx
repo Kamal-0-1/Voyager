@@ -1,39 +1,35 @@
 import React, { useState ,useContext} from 'react'
 import './booking.css'
 import { Button, Form, FormGroup,ListGroup,ListGroupItem } from 'reactstrap'
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/config';
 
 const Booking = ({tour, avgRating}) => {
     const{price,reviews,title}= tour;
-    const navigate = useNavigate();
 
     const {user} = useContext(AuthContext)
-
+    const serviceFee =10
     const [booking,setBooking]= useState({
         userID: user && user._id, //later it will be dynamic
         userEmail: user && user.email,
         tourName:title,
         fullName:'',
         phone:'',
+        price:0,
         guestSize:1,
         bookAt:''
     })
+    const totalCost=Number(price) * Number(booking.guestSize) + Number(serviceFee)
+
     const handleChange = e =>{
         setBooking(prev=>({...prev,[e.target.id]:e.target.value}))
+        // console.log(booking)
     };
-
-    const serviceFee =10
-    const totalCost = 
-    Number(price) * Number(booking.guestSize) + Number(serviceFee)
     
     const handleClick = async e =>{
         e.preventDefault();
-
-console.log(booking);
-
-
+        booking.price=totalCost;
+        // console.log(booking);
         try {
             if(!user || user===null){
                 return alert('Place sign in')
@@ -51,7 +47,10 @@ console.log(booking);
             if(!res.ok){
                 return alert(result.message)
             }
-            navigate('/thank-you')
+            console.log(result);
+            // window.open(result.data);
+            // navigate(result.data);
+            window.location.href=result.data;
 
         } catch (err) {
             alert(err.message)
@@ -61,7 +60,7 @@ console.log(booking);
         
     }
 
-  return (
+  return (  
    <div className="booking">
     <div  className=" booking__top d-flex align-items-center
      justify-content-between">

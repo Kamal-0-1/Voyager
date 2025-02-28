@@ -40,22 +40,18 @@ const settings = {
 return (
   <div className='tour__card'>
     <Card>
-      <div className="tour__img" style={{width:'100%',height:'150%'}}>
+      <div className="tour__img" style={{width:'100%',height:'100%'}}>
         <Slider {...settings}>
           <div>
-            <Image item={photo}></Image>
+            <Image item={photo[0]}></Image>
 
           </div>
           <div>
-            <Image item={photo}></Image>
+            <Image item={photo[1]}></Image>
             
           </div>
           <div>
-            <Image item={photo}></Image>
-            
-          </div>
-          <div>
-            <Image item={photo}></Image>
+            <Image item={photo[2]}></Image>
             
           </div>
         </Slider>

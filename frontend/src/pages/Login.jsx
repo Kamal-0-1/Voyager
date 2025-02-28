@@ -46,7 +46,7 @@ const navigate = useNavigate()
       console.log(result.data);
       
 
-        dispatch({type:'LOGIN_SUCCESS', payload:result.data})
+      dispatch({type:'LOGIN_SUCCESS', payload:result.data})
       navigate('/')
 
     } catch (err) {

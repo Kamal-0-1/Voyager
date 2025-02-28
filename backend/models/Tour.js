@@ -32,19 +32,17 @@ const tourSchema = new mongoose.Schema(
       type:mongoose.Types.Decimal128,
       required:true,
     },
-    address: {
-      type: String,
-      required: true,
-    },
     distance: {
       type: Number,
       required: true,
     },
     itinerary:[itineraryShema],
-    photo: {
+    photo: [
+      {
       type: String,
       required: true,
-    },
+      }
+    ],
     desc: {
       type: String,
       required: true,

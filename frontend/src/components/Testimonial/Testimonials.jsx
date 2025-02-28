@@ -80,36 +80,6 @@ const Testimonials = () => {
 </div>
 </div>
 </div>
-<div className="testimonial py-4 px-3">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Alias asperiores nisi quo, suscipit placeat consequuntur 
-    neque, delectus culpa eaque consectetur dolore at, voluptatum ipsa! 
-    Maxime, dicta.
-     Dicta libero obcaecati expedita.</p>
-
-<div className="d-flex align-items-center gap-4 mt-3">
-<img src={ava03} className='w-25 h-25 rounded-2' alt="" />
-<div>
-    <h6 className='mb-0 mt-3'>John Doe</h6>
-    <p>Customer</p>
-</div>
-</div>
-</div>
-<div className="testimonial py-4 px-3">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Alias asperiores nisi quo, suscipit placeat consequuntur 
-    neque, delectus culpa eaque consectetur dolore at, voluptatum ipsa! 
-    Maxime, dicta.
-     Dicta libero obcaecati expedita.</p>
-
-<div className="d-flex align-items-center gap-4 mt-3">
-<img src={ava02} className='w-25 h-25 rounded-2' alt="" />
-<div>
-    <h6 className='mb-0 mt-3'>Lia Franklin</h6>
-    <p>Customer</p>
-</div>
-</div>
-</div>
  </Slider>
   )
 }
